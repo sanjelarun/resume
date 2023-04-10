@@ -1,0 +1,105 @@
+<html>
+<head>
+<style>
+    
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.left {
+  flex: 1;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.right {
+  width: 300px;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.code {
+  width: 100%;
+  height: 80%;
+  border: none;
+  font-family: monospace;
+  font-size: 16px;
+}
+
+.button {
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.run {
+  background-color: green;
+  color: white;
+}
+
+.reset {
+  background-color: red;
+  color: white;
+}
+.help {
+  background-color: gray;
+  color: blue;
+}
+
+.feedback {
+  width: 100%;
+  height: calc(20% - 10px);
+  margin-top: 10px;
+  border: solid 1px black;
+}
+</style>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-lznzNOGJfYNZ+I2YD4ox4nJx4b+zx/aB4WACIokzjcFXtYGkvhR/kI7tll9d5fJ83tw2lNGHw5y5W3qg/Vc7CQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon/devicon.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <header>
+        <nav>
+          <ul>
+            <li><a href="index.html#intro">Introduction</a></li>
+            <li><a href="index.html#education">Education</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#project">Project</a></li>
+            <li><a href="Dataset.html">Dataset</a></li>
+            <li><a href="index.html#cns">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+<div class="container">
+<div class="left">
+<textarea class="code">
+# Python code snippet
+def hello(name):
+    print("Hello, " + name)
+
+hello("World")
+</textarea>
+</div>
+<div class="right">
+<button class="button run">Yes</button>
+<button class="button reset">No</button>
+<button class="button help">Sent it to Arun</button>
+<textarea class="feedback" placeholder="Feedback"></textarea>
+</div>
+</div>
+</body>
+</html>
