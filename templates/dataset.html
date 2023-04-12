@@ -1,0 +1,139 @@
+<html>
+<head>
+<style>
+    
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.left {
+  flex: 1;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.right {
+  width: 300px;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.code {
+  width: 100%;
+  height: 80%;
+  border: none;
+  font-family: monospace;
+  font-size: 16px;
+}
+
+.button {
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.run {
+  background-color: green;
+  color: white;
+}
+
+.reset {
+  background-color: red;
+  color: white;
+}
+.help {
+  background-color: gray;
+  color: blue;
+}
+
+.feedback {
+  width: 100%;
+  height: calc(20% - 10px);
+  margin-top: 10px;
+  border: solid 1px black;
+}
+</style>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-lznzNOGJfYNZ+I2YD4ox4nJx4b+zx/aB4WACIokzjcFXtYGkvhR/kI7tll9d5fJ83tw2lNGHw5y5W3qg/Vc7CQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon/devicon.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="left">
+      <textarea class="code">{{ snippet }}</textarea>
+    </div>
+    <div class="right">
+      <button class="button run">Yes</button>
+      <button class="button reset">No</button>
+      <button class="button help">Sent it to Arun</button>
+      <textarea class="feedback" placeholder="Feedback"></textarea>
+    </div>
+  </div>
+<script>
+  // Get references to the buttons and textarea
+  var yesButton = document.querySelector('.button.run');
+  var noButton = document.querySelector('.button.reset');
+  var sendButton = document.querySelector('.button.help');
+  var feedbackTextarea = document.querySelector('.feedback');
+  var codeTextarea = document.querySelector('.code');
+
+  // Add event listener to the "Yes" button
+  yesButton.addEventListener('click', function() {
+    // Send AJAX request to Flask app
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/update_csv');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        alert('CSV files updated successfully!');
+      }
+    };
+    xhr.send(JSON.stringify({ action: 'yes', code: codeTextarea.value }));
+  });
+
+  // Add event listener to the "No" button
+  noButton.addEventListener('click', function() {
+    // Send AJAX request to Flask app
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/update_csv');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        alert('CSV files updated successfully!');
+      }
+    };
+    xhr.send(JSON.stringify({ action: 'no', code: codeTextarea.value }));
+  });
+
+  // Add event listener to the "Sent it to Arun" button
+  sendButton.addEventListener('click', function() {
+    // Send AJAX request to Flask app
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/update_csv');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        alert('CSV files updated successfully!');
+      }
+    };
+    var feedback = feedbackTextarea.value;
+    xhr.send(JSON.stringify({ action: 'send', code: codeTextarea.value, feedback: feedback }));
+  });
+</script>
+
+</body>
+</html>
